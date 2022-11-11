@@ -6,6 +6,7 @@ This script provides also some parameters to control the script and can also upd
 [Chat Backup Walkthrough](CHAT_BACKUP_WALKTHROUGH.md)
 
 Last Update:
+- Updated the guide with new more helpful pictures.
 - improved the script so only the init variable is needed, makes the setup much easier.
 - fixed a maybe critical bug, not sure if all messages was backuped before. Suggest to create a new full backup.
 - added command line parameter -log for logging directly the messages anonymized from the WebSocket into chat_backup.log.
