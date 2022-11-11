@@ -31,7 +31,7 @@
 - Then click on the "Network" tab in developer tools.
 - Find v17 down the list of names & click on it, if the "Network" tab is empty go to your Replika browser tab and reload the side.
 - Click on the "Messages" tab. It should look like this... (can take a moment that this window get updated)
-![alt text](https://github.com/alan-couzens/replika_stuff/blob/main/network.png)
+![alt text](https://github.com/Hotohori/replika_backup/blob/main/network.png)
 - Right click on the first row of data beginning with {"event name":"init"} -> click "Copy message and paste it on line 16 (between the single quotes). It should look something like 
 {"event name": "init", "payload":{"device_id": "123456789",...,"user_id":"123456789", "auth_token":"123456789", "security_token":"123456789"..}}
 
