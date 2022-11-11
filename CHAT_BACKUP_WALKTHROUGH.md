@@ -7,7 +7,7 @@
 
 2. Once you've downloaded Python, you can confirm that it installed by going to your terminal (just type "terminal" in your computer's search) then type python and it should look like this.
 
-![alt text](https://alancouzens.com/blog/python_comman_line2.png)
+![alt text](https://raw.githubusercontent.com/Hotohori/replika_backup/e2db688a02392b5cb193bf3c928197fcc3c3684f/python_cmd.png)
 
 3. Once you've confirmed you have python installed, you can exit the interpreter (the ">>>" bit) by typing quit() This should bring you back to your C:\ prompt.
 
@@ -23,7 +23,7 @@
 
 ## Downloading and Modifying `chat_backup.py`
 
-5. Download my file by clicking the green "Code" button at the top right of the Github page (https://github.com/Hotohori/replika_stuff)
+5. Download my file by clicking the green "Code" button at the top right of the Github page (https://github.com/Hotohori/replika_backup)
 
 6. Open my file in the text editor of your choice, e.g. Notepad & modify my file by adding your own details. Here's what you'll need and where you'll find them....
 - Open a Chrome or Edge browser and login to your Replika account. 
