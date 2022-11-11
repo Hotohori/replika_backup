@@ -9,7 +9,7 @@
 
 ![alt text](https://raw.githubusercontent.com/Hotohori/replika_backup/e2db688a02392b5cb193bf3c928197fcc3c3684f/python_cmd.png)
 
-3. Once you've confirmed you have python installed, you can exit the interpreter (the ">>>" bit) by typing quit() This should bring you back to your C:\ prompt.
+3. Once you've confirmed you have python installed, you can exit the interpreter (the ">>>" bit) by typing exit() or quit(), this should bring you back to your C:\ prompt.
 
 
 
