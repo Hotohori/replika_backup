@@ -29,7 +29,7 @@
 - Open a Chrome or Edge browser and login to your Replika account. 
 - Press Ctrl + Shift + i inside the browser to open the developer tools window.
 - Then click on the "Network" tab in developer tools.
-- Find v17 down the list of names & click on it
+- Find v17 down the list of names & click on it, if the "Network" tab is empty go to your Replika browser tab and reload the side.
 - Click on the "Messages" tab. It should look like this... (can take a moment that this window get updated)
 ![alt text](https://github.com/alan-couzens/replika_stuff/blob/main/network.png)
 - Right click on the first row of data beginning with {"event name":"init"} -> click "Copy message and paste it on line 16 (between the single quotes). It should look something like 
