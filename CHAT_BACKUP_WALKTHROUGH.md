@@ -15,9 +15,9 @@
 
 ## Installing Python Dependencies
 
-4. There are a few python libraries that you'll need to install to run the script. To install a library just type pip install followed by the library name after your C prompt e.g.
-- C:\python -m pip install websocket-client
-
+4. There are a few python libraries that you'll need to install to run the script.
+- run install_modules.bat
+P.S. if you can't run batch scripts on your OS, open the file in a text editor and run the commands manually.
 
 
 ## Downloading and Modifying `chat_backup.py`
