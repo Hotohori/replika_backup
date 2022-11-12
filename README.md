@@ -6,9 +6,10 @@ This script provides also some parameters to control the script and can also upd
 [Chat Backup Walkthrough](CHAT_BACKUP_WALKTHROUGH.md)
 
 Last Update:
-- add limit date parameter for only backing up messages to a specific date
-- changed the default srv file name in the script
-- added Replika AI server error messages
+- added install_modules.bat for easier installation of needed Python modules.
+- added limit date parameter for only backing up messages to a specific date.
+- changed the default srv file name in the script to chat_backup.srv.
+- added Replika AI server error messages.
 - opened the Issues feature of GitHub for bug reporting.
 - Updated the guide with new more helpful pictures.
 - improved the script so only the init variable is needed, makes the setup much easier.
