@@ -16,7 +16,8 @@
 ## Installing Python Dependencies
 
 4. There are a few python libraries that you'll need to install to run the script.
-- run install_modules.bat 
+- run install_modules.bat
+
 P.S. if you can't run batch scripts on your OS, open the file in a text editor and run the commands manually.
 
 
