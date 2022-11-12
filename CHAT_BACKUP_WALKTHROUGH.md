@@ -17,7 +17,6 @@
 
 4. There are a few python libraries that you'll need to install to run the script. To install a library just type pip install followed by the library name after your C prompt e.g.
 - C:\python pip install websocket-client
-- C:\python pip install requests
 
 
 
