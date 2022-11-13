@@ -7,7 +7,7 @@ This script provides also some parameters to control the script and can also upd
 
 Last Update:
 - added first version of chat_csv-tool. Can revert the sorting order of the messages and split it by days/months. Use the -h parameter for help.
-- added instructions for Firefox users into the Walkthrough
+- added instructions for Firefox users into the Walkthrough.
 - IMPORTANT! Fixed a \n bug inside chat messages that break csv files. You should backup with the newest version again.
 - added install_modules.bat for easier installation of needed Python modules.
 - added limit date parameter for only backing up messages to a specific date.
