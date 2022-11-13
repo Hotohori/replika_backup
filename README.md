@@ -6,6 +6,7 @@ This script provides also some parameters to control the script and can also upd
 [Chat Backup Walkthrough](CHAT_BACKUP_WALKTHROUGH.md)
 
 Last Update:
+- IMPORTANT! Fixed a \n bug inside chat messages that break csv files. You should backup with the newest version again.
 - added install_modules.bat for easier installation of needed Python modules.
 - added limit date parameter for only backing up messages to a specific date.
 - changed the default srv file name in the script to chat_backup.srv.
