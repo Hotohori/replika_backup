@@ -3,6 +3,9 @@
 This fork contains a python script (chat_backup.py) to backup your Replika AI history log into a csv file on your Computer.
 This script provides also some parameters to control the script and can also update an existing backup.
 
+New on this fork is a tool for processing your csv files (chat_csv_tool.py). The script can revert the message order in both
+direction (old > new / new > old) and split your messages by days or months and soon by dialogs based on a user definited time gap.
+
 [Chat Backup Walkthrough](CHAT_BACKUP_WALKTHROUGH.md)
 
 Last Update:
