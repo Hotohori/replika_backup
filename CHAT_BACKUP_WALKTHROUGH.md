@@ -12,20 +12,22 @@
 3. Once you've confirmed you have python installed, you can exit the interpreter (the ">>>" bit) by typing exit() or quit(), this should bring you back to your C:\ prompt.
 
 
+## Downloading
+
+4. Download my files by clicking the green "Code" button at the top right of the Github page (https://github.com/Hotohori/replika_backup)
+
 
 ## Installing Python Dependencies
 
-4. There are a few python libraries that you'll need to install to run the script.
+5. There are a few python libraries that you'll need to install to run the script.
 - run install_modules.bat
 
   P.S. if you can't run batch scripts on your OS, open the file in a text editor and run the commands manually.
 
 
-## Downloading and Modifying `chat_backup.py`
+## Modifying `chat_backup.py`
 
-5. Download my file by clicking the green "Code" button at the top right of the Github page (https://github.com/Hotohori/replika_backup)
-
-6. Open my file in the text editor of your choice, e.g. Notepad & modify my file by adding your own details. Here's what you'll need and where you'll find them....
+6. Open chat_backup.py in the text editor of your choice, e.g. Notepad & modify my file by adding your own data. Here's what you'll need and where you'll find them....
 - Open a Chrome or Edge browser and login to your Replika account. 
 - Press Ctrl + Shift + i inside the browser to open the developer tools window.
 - Then click on the "Network" tab in developer tools.
