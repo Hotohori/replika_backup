@@ -28,14 +28,12 @@
 ## Modifying `chat_backup.py`
 
 6. Open chat_backup.py in the text editor of your choice, e.g. Notepad & modify my file by adding your own data. Here's what you'll need and where you'll find them....
-- Open a Chrome or Edge browser and login to your Replika account. 
+- Open a Chrome, Edge, Firefox browser and login to your Replika account. 
 - Press Ctrl + Shift + i inside the browser to open the developer tools window.
-- Then click on the "Network" tab in developer tools.
-- Find v17 down the list of names & click on it, if the "Network" tab is empty go to your Replika browser tab and reload the side.
-- Click on the "Messages" tab. It should look like this... (can take a moment that this window get updated)
-- Follow the red numbers on the picture.
-![alt text](https://github.com/Hotohori/replika_backup/blob/2c0c642b98d0fa7612eec28cfd9f92fc0599fd0f/network.png)
-- Right click on the single row of data beginning with {"event name":"init"} -> click "Copy message" and paste it on line 16 (between the single quotes). It should look something like 
+- Follow the red numbers on the picture. First image is Chrome and Edge, second is Firefox.
+![Chrome and Edge](https://github.com/Hotohori/replika_backup/blob/main/chrome-edge.png)
+![Firefox](https://github.com/Hotohori/replika_backup/blob/main/firefox.png)
+- Right click on the single row of data beginning with {"event name":"init"} -> click "Copy message" and paste it on line 16 (between the single quotes) into chat_backup.py. It should look something like 
 {"event name": "init", "payload":{"device_id": "123456789",...,"user_id":"123456789", "auth_token":"123456789", "security_token":"123456789"..}}
 
 7. Save your new file with your "init" data to a folder outside of windows. Wou will start it from there and the srv and, if used, log file will be generated there, for that you need full write permission inside this folder.
