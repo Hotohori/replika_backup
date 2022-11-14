@@ -1,6 +1,5 @@
 import csv
 import json
-import requests
 import websocket
 try:
     import thread
@@ -8,30 +7,19 @@ except ImportError:
     import _thread as thread
 import time
 import os
-import sys
-import argparse
+import argparse, configparser
+import datetime
 
-# ---------- edit the variables here --------------
+#  Variables are now stored into a "chat_backup.ini" file.
+#  If this file did not exist, mostly when you use this script the first
+#  time or using -i with a not existing config file, run this script one
+#  time and it will get automatically created.
 
-init = ''  # Insert full init message between single quotes
+# to run this script use: python chat_backup.py
 
-chat_id = ''  # Only left for fallback, you shouldn't need it any longer (this hex number should be always user_id - 1).
+# this file is from https://github.com/Hotohori/replika_backup
 
-file_name = 'chat_backup'  # Default backup filename between single quotes, you can also use the -f parameter
-
-# ---------- don't edit anything below -----------
-
-python_dict = json.loads(init)
-user_id = python_dict['auth']['user_id']
-auth_token = python_dict['auth']['auth_token']
-device_id = python_dict['auth']['device_id']
-if not chat_id:
-    chat_id = '%x' % (int(user_id, 16) - 1)
-
-last_file_id = ""
-all_msg_count = 0
-error_count = 0
-limitdate = ""
+def_ini_file = 'chat_backup.ini'
 
 
 def valid_date(s):
@@ -47,24 +35,76 @@ def valid_date(s):
         raise argparse.ArgumentTypeError("Not a valid date (YYYY.MM.DD): {0!r}.".format(s))
 
 
-parser = argparse.ArgumentParser(description=f'Backup your chat history from the Replika AI servers into a '
-                                             f'{file_name}.csv file. Abort script with Ctrl+C')
-parser.add_argument('-f', '--filename', type=ascii, metavar='filename', help='Define the csv filename')
-parser.add_argument('-lm', '--limitmsgs', type=int, metavar='int', help='Limits to {int} messages')
+last_file_id = ""
+all_msg_count = 0
+error_count = 0
+limitdate = ""
+
+parser = argparse.ArgumentParser(description=f'Backup your chat history from the Replika AI servers into a csv file. '
+                                             f'Abort script with Ctrl+C.')
+parser.add_argument('-f', '--filename', type=ascii, metavar='filename', help='Define the csv filename.')
+parser.add_argument('-lm', '--limitmsgs', type=int, metavar='int', help='Limits to {int} messages.')
 parser.add_argument('-ld', '--limitdate', type=valid_date, metavar='date',
-                    help='Backup only until {date} - Format: YYYY.MM.DD')
-parser.add_argument('-md', '--msgdebug', action='store_true', help='Show received messages')
-parser.add_argument('-ws', '--wsdebug', action='store_true', help='WebSocket debug mode')
-parser.add_argument('-log', '--logging', action='store_true', help='Logging WebSocket messages anonymized to log file')
-parser.add_argument('-ns', '--nosaving', action='store_true', help='Deactivates saving of csv file')
+                    help='Backup only until {date}. Format: YYYY.MM.DD')
+parser.add_argument('-i', '--inifile', type=ascii, metavar='inifile', help='Use custom ini file. Useful for multiple '
+                                                                           'Replika AI accounts.')
+parser.add_argument('-md', '--msgdebug', action='store_true', help='Show received messages.')
+parser.add_argument('-ws', '--wsdebug', action='store_true', help='WebSocket debug mode.')
+parser.add_argument('-log', '--logging', action='store_true', help='Logging WebSocket messages anonymized to log file.')
+parser.add_argument('-ns', '--nosaving', action='store_true', help='Deactivates saving of csv file. Useful with -md, '
+                                                                   '-ws, -log.')
 args = parser.parse_args()
 
-if args.filename:
-    file_name = args.filename.strip(" ' ")
+if args.inifile:
+    ini_file = args.inifile.strip("'")
+else:
+    ini_file = def_ini_file
+if not ini_file.endswith('.ini'):
+    ini_file += ".ini"
+
+if not os.path.exists(ini_file):
+    print(f'\nConfig file "{ini_file}" is missing\n\nFile will get created now.', end='')
+    with open(ini_file, 'w', encoding='utf-8') as file:
+        file.write("[DEFAULT]\n# Name of your Replika. Default: Replika\n\nNAME = Replika\n\n# Filename suffix. It "
+                   "will used with NAME to build the Filename for the csv backup file.\n# NAME + SUFFIX. By default it"
+                   " will be \"Replika_backup\" what lead into \"Replika_backup.csv\".\n# The -f parameter replace "
+                   "NAME + SUFFIX. Default: _backup\n\nSUFFIX = _backup\n\n# Only left for fallback, you should not "
+                   "need it any longer. Let it empty.\n# This CHAT_ID hex number should be always user_id - 1 from "
+                   "the INIT message.\n\nCHAT_ID = \n\n# Insert here the full init message from your browser behind "
+                   "\"INIT = \".\n# Some text editors show some less line breaks inside the init message where\n# "
+                   "are none because of the very long line, ignore it, should be fine.\n\nINIT = \n")
+        file.close()
+        quit(f'..Ok\n\nCreated "{ini_file}" - please edit this file now to use it with this script.')
+
 if args.limitdate:
     limitdate = str(args.limitdate - datetime.timedelta(days=1))[0:10]
+print(f'Loading config from {ini_file}.', end='')
+config = configparser.ConfigParser()
+config.sections()
+config.read(ini_file)
+init = config['DEFAULT']['INIT'].strip(" \"'")
+if not init:
+    quit(f'\n\nError: INIT variable not set inside "{ini_file}".')
+rep_name = config['DEFAULT']['NAME']
+if not rep_name:
+    quit(f'\n\nError: NAME variable not set inside {ini_file} or use -f instead.')
+if not config['DEFAULT']['SUFFIX']:
+    quit(f'\n\nError: SUFFIX variable not set inside {ini_file} or use -f instead.')
+if args.filename:
+    file_name = args.filename.strip(" '")
+else:
+    file_name = config['DEFAULT']['NAME'].strip(" \"'")+config['DEFAULT']['SUFFIX'].strip(" \"'")
 if file_name.endswith('.csv'):
     file_name = file_name.replace('.csv', '')
+
+python_dict = json.loads(init)
+user_id = python_dict['auth']['user_id']
+auth_token = python_dict['auth']['auth_token']
+device_id = python_dict['auth']['device_id']
+chat_id = config['DEFAULT']['CHAT_ID']
+if not chat_id:
+    chat_id = '%x' % (int(user_id, 16) - 1)
+print('..Ok')
 
 if not args.limitmsgs:
     if not limitdate:
@@ -287,7 +327,7 @@ def on_message(ws, message):
                 quit('..no further messages\n\nRead all possible messages - nothing saved')
 
 
-def on_error(ws, error):
+def on_error(error):
     global error_count
     if not repr(error).split('(')[0] == "SystemExit":
         if error_count == 2 or error != "'token'":
@@ -323,7 +363,7 @@ def on_open(ws):
 
 
 if __name__ == "__main__":
-    print('Open websocket to your Replika AI.', end='')
+    print(f'Open websocket to your Replika AI \'{rep_name}\'.', end='')
     websocket.enableTrace(args.wsdebug)
     ws = websocket.WebSocketApp("wss://ws.replika.ai/v17",
                                 on_open=on_open,
