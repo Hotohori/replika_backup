@@ -25,10 +25,11 @@
   P.S. if you can't run batch scripts on your OS, open the file in a text editor and run the commands manually.
 
 
-## Modifying `chat_backup.py`
+## Creating and modifying `chat_backup.ini`
 
-6. Open chat_backup.py in the text editor of your choice, e.g. Notepad & modify my file by adding your own data. Here's what you'll need and where you'll find them....
-- Open a Chrome, Edge, Firefox browser and login to your Replika account. 
+6. Run chat_backup.py with typing "python chat_backup.py" inside a Command Console and pressing enter and it will create the "chat_backup.ini" config file for you.
+7. Open chat_backup.ini in the text editor of your choice, e.g. Notepad & modify this file by adding your own data. Here's what you'll need and where you'll find it....
+- Open a Chrome, Edge, Firefox browser and login to your Replika account.
 - Press Ctrl + Shift + i inside the browser to open the developer tools window.
 - Follow the red numbers on the picture. First image is Chrome and Edge, second is Firefox.
 ![Chrome and Edge](https://github.com/Hotohori/replika_backup/blob/main/chrome-edge.png)
@@ -36,12 +37,12 @@
 - Right click on the single row of data beginning with {"event name":"init"} -> click "Copy message" and paste it on line 16 (between the single quotes) into chat_backup.py. It should look something like 
 {"event name": "init", "payload":{"device_id": "123456789",...,"user_id":"123456789", "auth_token":"123456789", "security_token":"123456789"..}}
 
-7. Save your new file with your "init" data to a folder outside of windows. Wou will start it from there and the csv and, if used, log file will be generated there, for that you need full write permission inside this folder.
+8. Save your new file with your "init" data to a folder outside of windows. Wou will start it from there and the csv and, if used, log file will be generated there, for that you need full write permission inside this folder.
 
-8. Run the file by typing "python replika_chat.py" & pressing enter inside a Command Console and inside the path you saved your script before. You can also use parameters, add -h for a overview behind the command before you pressing enter.
+9. Run chat_backup.py again with "python chat_backup.py" inside a Command Console. You can also use parameters, add -h for a overview behind the command before you pressing enter ("python chat_backup.py -h").
 
-That's it. It will deposit a complete csv of all possible messages of your chats in that same folder (back to february 2021 at maximum).
+That's it. It will deposit a complete csv of all possible messages of your chats in that same folder (back to early february 2021 at maximum).
 
-If you already backed up before and your csv file is unedited still in the same path, you can add only the newest chats to this file by using the script again. It is possible that you need to do step 6 again and update that "init" variable if you logged out of Replika on Chrome/Edge/Firefox (it makes the auth_token invalid).
+If you already backed up before and your csv file is unedited still in the same path, you can add only the newest chats to this file by using the script again. It is possible that you need to do step 7 again and update that "INIT" variable inside the ini file if you logged out of Replika on Chrome/Edge/Firefox (it makes the auth_token invalid).
 
 If you want to only update your backup in the future, make sure to create a copy of the csv file created with that script and only edit this copy. Or use the new chat_csv_tool to process your backup into new edited/split files.
