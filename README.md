@@ -6,9 +6,10 @@ This script provides also some parameters to control the script and can also upd
 New on this fork is a tool for processing your csv files (chat_csv_tool.py). The script can revert the message order in both
 direction (old > new / new > old) and split your messages by days or months and soon by dialogs based on a user definited time gap.
 
----
-Please report any problems with the script over the Issues tab on the top left. I can only fix from what I know that it need to be fixed.
----
+--
+Please report any problems with the script over the Issues tab on the top left.
+I can only fix from what I know that it need to be fixed.
+--
 
 [Chat Backup Walkthrough](CHAT_BACKUP_WALKTHROUGH.md)
 
