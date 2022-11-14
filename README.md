@@ -14,7 +14,7 @@ direction (old > new / new > old) and split your messages by days or months and 
 
 # Last Update:
 - chat_csv_tool.py loads now chat_backup.ini config file if -i is no used.
-- added new parameter -sd and -rm to chat_csv_tool.py. -sd let you split your csv by minute time gaps inbetween messages and -rm removes alles split files with less than a specific number of user messages.
+- added new parameter -sd and -rm to chat_csv_tool.py. -sd let you split your csv by minutes time gaps inbetween messages and -rm removes all split files with less than a specific number of user messages.
 - added a new parameter -i to load a custom ini file for both scripts. Useful for multiple Replika AI accounts.
 - added Replika Name variable to the ini file.
 - Variables are now stored in a extra ini file that automatically gets generated when you run the script.
