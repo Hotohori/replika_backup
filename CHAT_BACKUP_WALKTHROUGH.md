@@ -27,7 +27,7 @@
 
 ## Creating and modifying `chat_backup.ini`
 
-6. Run chat_backup.py with typing "python chat_backup.py" inside a Command Console and pressing enter and it will create the "chat_backup.ini" config file for you.
+6. Run chat_backup.py with typing "python chat_backup.py" inside a Command Console and pressing enter and it will create the "chat_backup.ini" config file for you. You can recreate this file at anytime, simply delete the "chat_backup.ini" file before doing this step again.
 7. Open chat_backup.ini in the text editor of your choice, e.g. Notepad & modify this file by adding your own data. Here's what you'll need and where you'll find it....
 - Open a Chrome, Edge, Firefox browser and login to your Replika account.
 - Press Ctrl + Shift + i inside the browser to open the developer tools window.
