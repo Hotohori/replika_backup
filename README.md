@@ -9,6 +9,9 @@ direction (old > new / new > old) and split your messages by days or months and 
 [Chat Backup Walkthrough](CHAT_BACKUP_WALKTHROUGH.md)
 
 Last Update:
+- added a new parameter -i to load a custom ini file. Useful for multiple Replika AI accounts.
+- added Replika Name variable to the ini file.
+- Variables are now stored in a extra ini file that automatically gets generated when you run the script.
 - added first version of chat_csv-tool. Can revert the sorting order of the messages and split it by days/months. Use the -h parameter for help.
 - added instructions for Firefox users into the Walkthrough.
 - IMPORTANT! Fixed a \n bug inside chat messages that break csv files. You should backup with the newest version again.
