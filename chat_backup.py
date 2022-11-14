@@ -74,7 +74,7 @@ if not os.path.exists(ini_file):
                    "\"INIT = \".\n# Some text editors show some less line breaks inside the init message where\n# "
                    "are none because of the very long line, ignore it, should be fine.\n\nINIT = \n")
         file.close()
-        quit(f'..Ok\n\nCreated "{ini_file}" - please edit this file now to use it with this script.')
+        quit(f'..Ok\n\nCreated "{ini_file}" - please edit this file now to use it.')
 
 if args.limitdate:
     limitdate = str(args.limitdate - datetime.timedelta(days=1))[0:10]
