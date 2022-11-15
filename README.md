@@ -13,6 +13,7 @@ direction (old > new / new > old) and split your messages by days or months and 
 ------------------------
 
 # Last Update:
+- added ".no" to filemane for "new to old" message order what is the standard what you get from the Replika AI servers. So new file ending is ".no.srv".
 - chat_csv_tool.py loads now chat_backup.ini config file if -i is no used.
 - added new parameter -sd and -rm to chat_csv_tool.py. -sd let you split your csv by minutes time gaps inbetween messages and -rm removes all split files with less than a specific number of user messages.
 - added a new parameter -i to load a custom ini file for both scripts. Useful for multiple Replika AI accounts.
