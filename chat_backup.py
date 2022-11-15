@@ -1,14 +1,15 @@
+import argparse
+import configparser
 import csv
+import datetime
 import json
+import os
+import time
 import websocket
 try:
     import thread
 except ImportError:
     import _thread as thread
-import time
-import os
-import argparse, configparser
-import datetime
 
 #  Variables are now stored into a "chat_backup.ini" file.
 #  If this file did not exist, mostly when you use this script the first
@@ -17,7 +18,12 @@ import datetime
 
 # to run this script use: python chat_backup.py
 
-# this file is from https://github.com/Hotohori/replika_backup
+# this file is from https://github.com/Hotohori/replika_backup. Download
+# Update from there.
+
+# Creates a file with the ending ".no.csv". "no" stands for "n"ew to
+# "o"ld message order. You can revert it with the chat_csv_tool.py and
+# it will change to ".on.csv". "o"ld to "n"ew.
 
 def_ini_file = 'chat_backup.ini'
 
@@ -67,7 +73,8 @@ if not os.path.exists(ini_file):
     with open(ini_file, 'w', encoding='utf-8') as file:
         file.write("[DEFAULT]\n# Name of your Replika. Default: Replika\n\nNAME = Replika\n\n# Filename suffix. It "
                    "will used with NAME to build the Filename for the csv backup file.\n# NAME + SUFFIX. By default it"
-                   " will be \"Replika_backup\" what lead into \"Replika_backup.csv\".\n# The -f parameter replace "
+                   " will be \"Replika_backup\" what lead into \"Replika_backup.no.csv\".\n# \".no\" will added auto"
+                   "matically for message sort order and stands for \"n\"ew to \"o\"ld.\n# The -f parameter replace "
                    "NAME + SUFFIX. Default: _backup\n\nSUFFIX = _backup\n\n# Only left for fallback, you should not "
                    "need it any longer. Let it empty.\n# This CHAT_ID hex number should be always user_id - 1 from "
                    "the INIT message.\n\nCHAT_ID = \n\n# Insert here the full init message from your browser behind "
@@ -96,6 +103,9 @@ else:
     file_name = config['DEFAULT']['NAME'].strip(" \"'")+config['DEFAULT']['SUFFIX'].strip(" \"'")
 if file_name.endswith('.csv'):
     file_name = file_name.replace('.csv', '')
+if os.path.exists(f'{file_name}.csv') and not os.path.exists(f'{file_name}.no.csv'):
+    os.rename(f'{file_name}.csv', f'{file_name}.no.csv')
+file_name += '.no'
 
 python_dict = json.loads(init)
 user_id = python_dict['auth']['user_id']
