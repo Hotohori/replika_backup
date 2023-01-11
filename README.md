@@ -10,6 +10,8 @@ direction (old > new / new > old) and split your messages by days or months and 
 
 ### Please report any problems with the script over the Issues tab on the top left.
 ### I can only fix from what I know that it need to be fixed.
+
+## Actual oldest date up to which backup is possible: 1. July 2022
 ------------------------
 
 # Last Update:
