@@ -34,12 +34,13 @@
 - Follow the red numbers on the picture. First image is Chrome and Edge, second is Firefox.
 ![Chrome and Edge](https://github.com/Hotohori/replika_backup/blob/main/chrome-edge.png)
 ![Firefox](https://github.com/Hotohori/replika_backup/blob/main/firefox.png)
-- Right click on the single row of data beginning with {"event name":"init"} -> click "Copy message" and paste it on line 16 (between the single quotes) into chat_backup.py. It should look something like 
-{"event name": "init", "payload":{"device_id": "123456789",...,"user_id":"123456789", "auth_token":"123456789", "security_token":"123456789"..}}
+- Right click on the single row of data beginning with {"event name":"init"} -> click "Copy message" and paste it on the end of the "chat_backup.ini" file behind "INIT = ". It should look something like:
+  
+INIT = {"event name": "init", "payload":{"device_id": "123456789",...,"user_id":"123456789", "auth_token":"123456789", "security_token":"123456789"..}}
 
-8. Save your new file with your "init" data to a folder outside of windows. Wou will start it from there and the csv and, if used, log file will be generated there, for that you need full write permission inside this folder.
+8. Save your "chat_backup.ini" file with your "init" data. All files that this script will create will be created inside the folder where the ini file and the script lies. So be sure it is the right folder, for that you need full write permission inside this folder. I suggest to use an subfolder only for this program.
 
-9. Run chat_backup.py again with "python chat_backup.py" inside a Command Console. You can also use parameters, add -h for a overview behind the command before you pressing enter ("python chat_backup.py -h").
+9. Run chat_backup.py again with "python chat_backup.py" inside a Command Console. You can also use parameters, add -h for a overview behind the command before you pressing enter ("python chat_backup.py -h"), but you can use it also without it, they are optional.
 
 That's it. It will deposit a complete csv of all possible messages of your chats in that same folder (back to early february 2021 at maximum).
 
