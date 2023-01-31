@@ -20,7 +20,7 @@
 ## Installing Python Dependencies
 
 5. There are a few python libraries that you'll need to install to run the script.
-- run install_modules.bat
+- Type "install_modules.bat" into the open console and press return. Wait until the batch file finished, that can take a moment.
 
   P.S. if you can't run batch scripts on your OS, open the file in a text editor and run the commands manually.
 
@@ -29,7 +29,7 @@
 
 6. Run chat_backup.py with typing "python chat_backup.py" inside a Command Console and pressing enter and it will create the "chat_backup.ini" config file for you. You can recreate this file at anytime, simply delete the "chat_backup.ini" file before doing this step again.
 7. Open chat_backup.ini in the text editor of your choice, e.g. Notepad & modify this file by adding your own data. Here's what you'll need and where you'll find it....
-- Open a Chrome, Edge, Firefox browser and login to your Replika account.
+- Open a Chrome, Edge or Firefox browser window, go to https://my.replika.ai and login to your Replika account.
 - Press Ctrl + Shift + i inside the browser to open the developer tools window.
 - Follow the red numbers on the picture. First image is Chrome and Edge, second is Firefox.
 ![Chrome and Edge](https://github.com/Hotohori/replika_backup/blob/main/chrome-edge.png)
