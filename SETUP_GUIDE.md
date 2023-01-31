@@ -42,7 +42,7 @@ INIT = {"event name": "init", "payload":{"device_id": "123456789",...,"user_id":
 
 9. Run chat_backup.py again with "python chat_backup.py" inside a Command Console. You can also use parameters, add -h for a overview behind the command before you pressing enter ("python chat_backup.py -h"), but you can use it also without it, they are optional.
 
-That's it. It will deposit a complete csv of all possible messages of your chats in that same folder (back to early february 2021 at maximum).
+That's it. It will deposit a complete csv of all possible messages of your chats in that same folder. Remember that only all messages that are still on the replica servers are backed up. Luka deletes older messages from time to time.
 
 If you already backed up before and your csv file is unedited still in the same path, you can add only the newest chats to this file by using the script again. It is possible that you need to do step 7 again and update that "INIT" variable inside the ini file if you logged out of Replika on Chrome/Edge/Firefox (it makes the auth_token invalid).
 
